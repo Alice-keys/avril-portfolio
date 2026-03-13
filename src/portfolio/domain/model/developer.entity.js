@@ -4,7 +4,6 @@ export class Developer {
     constructor({
                     name = '',
                     title = '',
-                    bio = '',
                     photoUrl = '',
                     cvUrl = '',
                     email = '',
@@ -14,7 +13,6 @@ export class Developer {
                 }) {
         this.name = name
         this.title = title
-        this.bio = bio
         this.photoUrl = photoUrl
         this.cvUrl = cvUrl
         this.email = email
