@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "portfolio": "Portafolio",
+    "skills": "Skills",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "role": "Frontend Developer",
+    "download-cv": "Descargar CV",
+    "contact-me": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "bio": "Desarrolladora frontend apasionada por crear soluciones web modernas. Estudiante de Ingeniería de Software en UPC con proyectos en .NET, Spring Boot, Vue.js y Angular. Me apasiona aprender tecnologías nuevas y entregar código limpio y mantenible. Destaco trabajando bajo presión sin perder productividad, resolviendo problemas complejos en equipo o individualmente."
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "no-projects": "No hay proyectos disponibles aún."
+  },
+  "skills": {
+    "title": "Skills",
+    "languages": "Lenguajes de Programación",
+    "frameworks": "Frameworks y Librerías",
+    "tools": "Software y Herramientas",
+    "soft-skills": "Habilidades Blandas"
+  },
+  "contact": {
+    "title": "Contacto",
+    "email-label": "Email",
+    "whatsapp-label": "WhatsApp",
+    "linkedin-label": "LinkedIn",
+    "send-email": "Enviar email",
+    "send-whatsapp": "Mensaje por WhatsApp"
+  },
+  "footer": {
+    "made-with": "Made with bugs and cats"
+  }
+}

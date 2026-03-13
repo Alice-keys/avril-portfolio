@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "portfolio": "Portfolio",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "role": "Frontend Developer",
+    "download-cv": "Download CV",
+    "contact-me": "Contact me"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "Passionate frontend developer creating modern web solutions. Software Engineering student at UPC with projects in .NET, Spring Boot, Vue.js and Angular. I love learning new technologies and delivering clean, maintainable code. I excel working under pressure without losing productivity, solving complex problems both in team and individually."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "no-projects": "No projects available yet."
+  },
+  "skills": {
+    "title": "Skills",
+    "languages": "Programming Languages",
+    "frameworks": "Frameworks & Libraries",
+    "tools": "Software & Tools",
+    "soft-skills": "Soft Skills"
+  },
+  "contact": {
+    "title": "Contact",
+    "email-label": "Email",
+    "whatsapp-label": "WhatsApp",
+    "linkedin-label": "LinkedIn",
+    "send-email": "Send email",
+    "send-whatsapp": "WhatsApp message"
+  },
+  "footer": {
+    "made-with": "Made with bugs and cats"
+  }
+}
