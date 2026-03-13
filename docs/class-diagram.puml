@@ -1,0 +1,183 @@
+@startuml
+
+package "portfolio.domain.model" {
+  class Developer {
+    - name: string
+    - title: string
+    - bio: string
+    - photoUrl: string
+    - cvUrl: string
+    - email: string
+    - whatsapp: string
+    - linkedinUrl: string
+    - socialLinks: SocialLink[]
+  }
+  class Project {
+    - id: string
+    - title: string
+    - description: string
+    - imageUrl: string
+    - technologies: Technology[]
+    - githubUrl: string
+    - deployUrl: string
+  }
+  class Technology {
+    - name: string
+    - iconUrl: string
+  }
+  class SkillCategory {
+    - name: string
+    - skills: Skill[]
+  }
+  class Skill {
+    - name: string
+    - iconUrl: string
+  }
+  class SocialLink {
+    - platform: string
+    - url: string
+    - iconUrl: string
+  }
+}
+
+package "portfolio.infrastructure" {
+  class PortfolioData {
+    + getDeveloper()
+    + getProjects()
+    + getSkillCategories()
+  }
+  class DeveloperAssembler {
+    + toEntityFromResource(resource)
+  }
+  class SocialLinkAssembler {
+    + toEntityFromResource(resource)
+    + toEntitiesFromResource(resource)
+  }
+  class ProjectAssembler {
+    + toEntityFromResource(resource)
+    + toEntitiesFromResource(resource)
+  }
+  class TechnologyAssembler {
+    + toEntityFromResource(resource)
+    + toEntitiesFromResource(resource)
+  }
+  class SkillCategoryAssembler {
+    + toEntityFromResource(resource)
+    + toEntitiesFromResource(resource)
+  }
+  class SkillAssembler {
+    + toEntityFromResource(resource)
+    + toEntitiesFromResource(resource)
+  }
+}
+
+package "portfolio.application" {
+  class portfolioStore {
+    - developer: Developer
+    - projects: Project[]
+    - skillCategories: SkillCategory[]
+    - currentProjectIndex: number
+    + loadData()
+    + setCurrentProject(index): void
+  }
+}
+
+package "portfolio.presentation.components" {
+  class HeroSection {
+    - developer: Developer
+    + downloadCv(): void
+    + scrollToContact(): void
+  }
+  class AboutSection {
+    - developer: Developer
+  }
+  class ProjectList {
+    - projects: Project[]
+    - currentIndex: number
+    + navigateCarousel(index): void
+  }
+  class ProjectItem {
+    - project: Project
+    + openGithub(): void
+    + openDeploy(): void
+  }
+  class SkillCategoryList {
+    - skillCategories: SkillCategory[]
+  }
+  class SkillCategoryItem {
+    - skillCategory: SkillCategory
+  }
+  class ContactSection {
+    - developer: Developer
+    + openEmail(): void
+    + openWhatsApp(): void
+  }
+}
+
+package "shared.presentation.components" {
+  class Layout {
+    - currentLanguage: string
+    + onMounted(): void
+  }
+  class Navbar {
+    - menuVisible: boolean
+    + toggleMenu(): void
+    + scrollToSection(section): void
+  }
+  class LanguageSwitcher {
+    ' binds $i18n.locale
+  }
+  class FooterContent {
+    - developer: Developer
+  }
+}
+
+class App
+
+Project *--> Technology
+Developer *--> SocialLink
+SkillCategory *--> Skill
+
+DeveloperAssembler ..> Developer : creates
+DeveloperAssembler ..> SocialLinkAssembler : uses
+SocialLinkAssembler ..> SocialLink : creates
+ProjectAssembler ..> Project : creates
+ProjectAssembler ..> TechnologyAssembler : uses
+TechnologyAssembler ..> Technology : creates
+SkillCategoryAssembler ..> SkillCategory : creates
+SkillCategoryAssembler ..> SkillAssembler : uses
+SkillAssembler ..> Skill : creates
+
+portfolioStore ..> "portfolio.infrastructure.PortfolioData" : uses
+portfolioStore ..> "portfolio.infrastructure.DeveloperAssembler" : uses
+portfolioStore ..> "portfolio.infrastructure.ProjectAssembler" : uses
+portfolioStore ..> "portfolio.infrastructure.SkillCategoryAssembler" : uses
+
+portfolioStore ..> "portfolio.domain.model.Developer" : uses
+portfolioStore ..> "portfolio.domain.model.Project" : uses
+portfolioStore ..> "portfolio.domain.model.SkillCategory" : uses
+portfolioStore ..> "portfolio.domain.model.Skill" : uses
+portfolioStore ..> "portfolio.domain.model.Technology" : uses
+portfolioStore ..> "portfolio.domain.model.SocialLink" : uses
+
+HeroSection --> Developer
+AboutSection --> Developer
+ProjectList --> ProjectItem : uses
+ProjectItem --> Project : uses
+SkillCategoryList --> SkillCategoryItem : uses
+SkillCategoryItem --> SkillCategory : uses
+ContactSection --> Developer : uses
+FooterContent --> Developer : uses
+
+App --> Layout : uses
+Layout --> Navbar : uses
+Layout --> LanguageSwitcher : uses
+Layout --> FooterContent : uses
+Layout --> HeroSection : uses
+Layout --> AboutSection : uses
+Layout --> ProjectList : uses
+Layout --> SkillCategoryList : uses
+Layout --> ContactSection : uses
+Layout --> portfolioStore
+
+@enduml

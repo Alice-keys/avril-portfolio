@@ -1,5 +1,30 @@
-# Vue 3 + Vite
+# Avril | Frontend Developer Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Summary
+Personal portfolio application showcasing projects, skills, and contact information,
+developed using Vue Framework, PrimeVue, and Vue i18n.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Features
+- Hero section with introduction and CTA buttons
+- About section with biography and career objectives
+- Projects section with carousel navigation
+- Skills section organized by categories
+- Contact section with email and WhatsApp integration
+- Internationalization (i18n) support for English and Spanish
+- Mobile responsive design
+- Environment variables
+
+## User Stories
+The document [docs/user-stories.md](docs/user-stories.md) contains the user stories
+for the application.
+
+## Class Diagram
+Review the class diagram in [docs/class-diagram.puml](docs/class-diagram.puml)
+to understand the structure of the application.
+
+## Technologies
+- Vue 3
+- Vue i18n
+- PrimeVue
+- PrimeFlex
+- Vite
