@@ -10,4 +10,4 @@ export class DeveloperAssembler {
         developer.socialLinks = SocialLinkAssembler.toEntitiesFromResource(resource.socialLinks)
         return developer
     }
-}mm
+}
