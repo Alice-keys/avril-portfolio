@@ -13,8 +13,10 @@ export const portfolioStore = reactive({
     currentProjectIndex: 0,
 
     loadData() {
+        console.log('loadData called')
         this.developer = DeveloperAssembler
             .toEntityFromResource(portfolioData.getDeveloper())
+        console.log('developer:', this.developer)
 
         this.projects = ProjectAssembler
             .toEntitiesFromResource(portfolioData.getProjects())
