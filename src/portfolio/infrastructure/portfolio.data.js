@@ -4,7 +4,7 @@ const data = {
         name: "Avril",
         title: "Frontend Developer",
         photoUrl: "/assets/photo.jpg",
-        cvUrl: import.meta.env.VITE_CV_URL,
+        cvUrl: '/assets/cv-avril-navarro.pdf',
         email: "avril.navarro.16@gmail.com",
         whatsapp: "+51942993152",
         linkedinUrl: "https://linkedin.com/in/yourprofile",
