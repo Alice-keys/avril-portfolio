@@ -1,7 +1,7 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { portfolioStore } from '../../../portfolio/application/portfolio.store.js'
-import Navbar from './navbar.vue'
+import NavbarComponent from './navbar.vue'
 import FooterContent from './footer-content.vue'
 import HeroSection from '../../../portfolio/presentation/components/hero-section.vue'
 import AboutSection from '../../../portfolio/presentation/components/about-section.vue'
@@ -14,24 +14,30 @@ const projects = computed(() => portfolioStore.projects)
 const skillCategories = computed(() => portfolioStore.skillCategories)
 const currentProjectIndex = computed(() => portfolioStore.currentProjectIndex)
 
+watch(developer, (val) => {
+  console.log('developer changed:', val)
+})
+
 onMounted(() => {
+  console.log('layout onMounted')
   portfolioStore.loadData()
+  console.log('developer after loadData:', portfolioStore.developer)
 })
 </script>
 
 <template>
-  <div v-if="developer">
-    <navbar/>
-    <main>
-      <hero-section      :developer="developer"/>
-      <about-section     :developer="developer"/>
-      <project-list      :projects="projects"
-                         :current-project-index="currentProjectIndex"
-                         @navigate-carousel="portfolioStore.setCurrentProject($event)"/>
-      <skill-category-list :skill-categories="skillCategories"/>
-      <contact-section   :developer="developer"/>
+  <div>
+    <NavbarComponent/>
+    <main v-if="developer">
+      <HeroSection      :developer="developer"/>
+      <AboutSection     :developer="developer"/>
+      <ProjectList      :projects="projects"
+                        :current-project-index="currentProjectIndex"
+                        @navigate-carousel="portfolioStore.setCurrentProject($event)"/>
+      <SkillCategoryList :skill-categories="skillCategories"/>
+      <ContactSection   :developer="developer"/>
     </main>
-    <footer-content :developer="developer"/>
+    <FooterContent v-if="developer" :developer="developer"/>
   </div>
 </template>
 
