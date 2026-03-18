@@ -8,14 +8,6 @@
 </template>
 
 <style scoped>
-:deep(.p-selectbutton) {
-  background: transparent;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-<style scoped>
  :deep(.p-togglebutton) {
    background: transparent;
    border: 1px solid #ffffff;
@@ -29,5 +21,4 @@
   background: #ffffff;
   color: #000000;
 }
-</style>
 </style>
