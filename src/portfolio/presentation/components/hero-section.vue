@@ -44,4 +44,73 @@ function scrollToContact() {
 </template>
 
 <style scoped>
+
+h1 strong {
+  font-weight: 800;
+  font-style: italic;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px 200px 100px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  font-weight: 300;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+.hero-buttons :deep(.p-button) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 12px 28px;
+}
+
+.hero-buttons :deep(.p-button:hover) {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.hero-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-socials i {
+  font-size: 40px;
+}
+.hero-socials a {
+  color: #ffffff;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.hero-photo img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 </style>
